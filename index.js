@@ -24,6 +24,8 @@ io.on('connection', (socket) => {
     console.log('Connected...')
     socket.on('message', (msg) => {
         console.info(`Socket ${socket.id} says: "${msg}"`);
+         console.log('1-',socket.handshake.headers.host)
+        console.log('2-',socket.handshake.headers.referer)
         socket.broadcast.emit('message', msg)
     })
     socket.on('disconnect',()=> {
